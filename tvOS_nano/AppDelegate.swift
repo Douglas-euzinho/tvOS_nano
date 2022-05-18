@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  tvOS_nano
 //
-//  Created by Douglas Figueirôa on 15/05/22.
+//  Created by Douglas Figueirôa on 12/05/22.
 //
 
 import UIKit
