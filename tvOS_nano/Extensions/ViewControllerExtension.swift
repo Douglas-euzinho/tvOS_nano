@@ -12,16 +12,22 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arrayOfPlaces.count
+//        return arrayOfPlaces.count
+        return placesFavorited.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = placesCollectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CellClass
-        cell.nameTextCell.text = arrayOfPlaces[indexPath.row].title
-        let imageView = arrayOfImages[indexPath.row].image
-        print("TIPO: \(imageView)")
-        cell.imageViewCell.image = imageView.image
+//        let favorite = placesFavorited[indexPath.row]
+        
+        cell.nameTextCell.text = placesFavorited[indexPath.row].entity.name
+        
+//
+//        cell.nameTextCell.text = arrayOfPlaces[indexPath.row].title
+//        let imageView = arrayOfImages[indexPath.row].image
+//        print("TIPO: \(imageView)")
+//        cell.imageViewCell.image = imageView.image
         cell.backgroundColor = UIColor.darkGray
         
 //        for view in cell.subviews{

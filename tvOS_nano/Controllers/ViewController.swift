@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import CoreData
 
 class ViewController: UIViewController{
     
@@ -23,6 +24,8 @@ class ViewController: UIViewController{
     
     @IBOutlet weak var placesCollectionView: UICollectionView!
     let reuseIdentifier = "Cell"
+    
+    var placesFavorited: [NSManagedObject] = []
     
     
     override func viewDidLoad() {
