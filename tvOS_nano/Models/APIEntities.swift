@@ -8,13 +8,21 @@
 import UIKit
 
 
-
-
-struct results: Codable{
-    let image: [imageResults]
+struct ImageCell{
+    var image: UIImageView
 }
 
-struct imageResults: Codable{
-    let thumb: String
+struct Results: Codable{
+    let image: [ImageResults]
+}
+
+struct ImageResults: Codable{
+    let url: String
+    
+    enum CodingKeys: String, CodingKey {
+        case url = "murl"
+    }
+                    
+    
 }
 

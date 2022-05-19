@@ -59,26 +59,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8S8-vO-LVq">
-                                <rect key="frame" x="684" y="335" width="215" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="captureName:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="A28-u9-FOE"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Info" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mvI-Za-vk1">
-                                <rect key="frame" x="1021" y="335" width="215" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="captureInfo:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="gpA-c2-dkX"/>
-                                </connections>
-                            </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RrB-2x-Cg5">
-                                <rect key="frame" x="0.0" y="685" width="1920" height="335"/>
+                                <rect key="frame" x="96" y="685" width="1728" height="335"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lCC-aq-25W">
                                     <size key="itemSize" width="287" height="277"/>
@@ -120,7 +102,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whk-fP-86B">
-                                <rect key="frame" x="815" y="457" width="291" height="85"/>
+                                <rect key="frame" x="684" y="457" width="552" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Button"/>
@@ -138,12 +120,20 @@
                                     <action selector="searchButton:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="JdM-5k-ojX"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8S8-vO-LVq">
+                                <rect key="frame" x="684" y="340" width="552" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="captureName:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="A28-u9-FOE"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wu6-TO-1qx"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="infoTextField" destination="mvI-Za-vk1" id="t4V-fJ-TyF"/>
                         <outlet property="latitudeTextField" destination="65H-Dc-LdR" id="Xcf-Yy-eqo"/>
                         <outlet property="longitudeTextField" destination="n8C-xO-Wwf" id="r8h-1a-G5G"/>
                         <outlet property="nameTextField" destination="8S8-vO-LVq" id="5tM-Hk-QQg"/>
@@ -153,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-51" y="-81"/>
+            <point key="canvasLocation" x="-65" y="-78"/>
         </scene>
     </scenes>
     <resources>

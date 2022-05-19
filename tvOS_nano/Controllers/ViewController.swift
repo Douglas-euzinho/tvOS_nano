@@ -18,7 +18,6 @@ class ViewController: UIViewController{
     @IBOutlet weak var latitudeTextField: UITextField!
     @IBOutlet weak var longitudeTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var infoTextField: UITextField!
     
     @IBOutlet weak var searchButton: UIButton!
     
@@ -51,13 +50,6 @@ class ViewController: UIViewController{
         self.nameTextField.text = name.text
         ViewController.teste.title = nameTextField.text
     }
-    
-    @IBAction func captureInfo(_ sender: Any) {
-        guard let info = sender as? UITextField else { return }
-        self.infoTextField.text = info.text
-        ViewController.teste.info = infoTextField.text
-    }
-    
     
     @IBAction func searchButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Map", bundle: nil)

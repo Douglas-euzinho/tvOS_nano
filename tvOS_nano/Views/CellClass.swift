@@ -11,8 +11,6 @@ class CellClass: UICollectionViewCell{
     @IBOutlet weak var nameTextCell: UILabel!
     @IBOutlet weak var imageViewCell: UIImageView!
     
-    
-    
 }
 
 

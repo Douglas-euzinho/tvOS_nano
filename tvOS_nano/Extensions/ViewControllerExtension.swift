@@ -19,14 +19,14 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
         
         let cell = placesCollectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CellClass
         cell.nameTextCell.text = arrayOfPlaces[indexPath.row].title
+        let imageView = arrayOfImages[indexPath.row].image
+        print("TIPO: \(imageView)")
+        cell.imageViewCell.image = imageView.image
         cell.backgroundColor = UIColor.darkGray
         
-        for view in cell.subviews{
-            view.removeFromSuperview()
-        }
-        
-        
-        
+//        for view in cell.subviews{
+//            view.removeFromSuperview()
+//        }
 //        let arrayCell = arrayOfPlaces[indexPath.row]
         
         return cell
