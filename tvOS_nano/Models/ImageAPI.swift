@@ -7,13 +7,21 @@
 
 import UIKit
 
+enum APIError: String, Error{
+    case loadImage = "Error ao fazer load da image"
+}
+
 class ImageSearchAPI{
-    public static func request(param: String, completionHandler: @escaping (Data) -> Void ){
+    public static func request(param: String, completionHandler: @escaping (Result<Data, APIError>) -> Void ){
         let session = URLSession.shared
         let baseURL = "https://sis-api.herokuapp.com/sis/api/v1/search/image/"
         
-        let url = URL(string: "\(baseURL)/\(param)")
-        let task = session.dataTask(with: url!) { data, response, error in
+        guard let url = URL(string: "\(baseURL)/\(param.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "Brasilia")") else {
+            completionHandler(.failure(.loadImage))
+            return
+        }
+        
+        let task = session.dataTask(with: url) { data, response, error in
             if error == nil {
                 guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else{
                     print("Erro Api Imagem codigo = \(String(describing: (response as? HTTPURLResponse)?.statusCode))")
@@ -25,7 +33,7 @@ class ImageSearchAPI{
                 }
                 
                 if let data = data {
-                    completionHandler(data)
+                    completionHandler(.success(data))
                 }
             }else{
                 print("Erro Na Busca dos dados \(error?.localizedDescription ?? "Erro não definido")")

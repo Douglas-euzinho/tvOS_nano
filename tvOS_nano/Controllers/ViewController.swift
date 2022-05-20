@@ -8,7 +8,8 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController{
+
+class ViewController: UIViewController {
     
     static var teste = Capital()
 
@@ -52,10 +53,50 @@ class ViewController: UIViewController{
     }
     
     @IBAction func searchButton(_ sender: Any) {
+        searchImages()
         let storyboard = UIStoryboard(name: "Map", bundle: nil)
         let mapViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController")
         show(mapViewController, sender: self)
     }
+    
+    
+    private func searchImages() {
+        guard let textToSearch = nameTextField.text else { return }
+        ImageSearchAPI.request(param: textToSearch ) { result in
+            
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {  [weak self] in
+                    let decoder = JSONDecoder()
+
+                    guard let result = try?  decoder.decode([ImageResults].self, from: data) else { return }
+
+                    let url = result.first
+
+                    guard let content = try? URL(string: url!.url) else { return }
+                    print("PASSOU 1")
+
+                    guard let data = try? Data(contentsOf: content) else { return }
+                    print("PASSOU 2")
+
+                    guard let image = try? UIImageView(image: UIImage(data: data)) else { return }
+                    print("PASSOU 3")
+
+                    let a = ImageCapital(image: image)
+                    arrayOfImages.append(a)
+                    self?.placesCollectionView.reloadData()
+                }
+                
+            case .failure(let error):
+                print("Deu erro \(error.rawValue)")
+                break
+            }
+            
+           
+        }
+    }
+    
+    
 }
 
 
